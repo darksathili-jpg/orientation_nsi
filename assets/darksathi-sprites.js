@@ -1,6 +1,6 @@
 (()=>{'use strict';
 const source='assets/personnages/Planche%20de%20sprites%20du%20cyber-chat%20lyc%C3%A9en.png';
-function frames(host){if(host.querySelector('.ds-frame'))return;host.textContent='';for(let i=0;i<3;i++){const frame=document.createElement('span');frame.className='ds-frame';frame.setAttribute('aria-hidden','true');host.append(frame)}}
+function frames(host){if(host.dataset.dsReady==='1')return;host.replaceChildren();host.dataset.dsReady='1';host.setAttribute('aria-hidden','true')}
 function recolor(img){
  try{
   const canvas=document.createElement('canvas');canvas.width=img.naturalWidth;canvas.height=img.naturalHeight;
