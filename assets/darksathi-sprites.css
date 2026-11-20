@@ -1,6 +1,6 @@
 /* Planche originale Darksathi Li : 3 colonnes x 4 lignes, poses sur fond transparent.
-   Fichier attendu : assets/personnages/darksathi-li-spritesheet.png */
-.darksathi-sprite{display:inline-block;flex:none;width:48px;height:48px;background-image:url('./personnages/darksathi-li-spritesheet.png');background-repeat:no-repeat;background-size:300% 400%;background-position:50% 0%;image-rendering:auto;filter:drop-shadow(0 4px 5px #103b4670)}
+   Fichier attendu : assets/personnages/Planche%20de%20sprites%20du%20cyber-chat%20lyc%C3%A9en.png */
+.darksathi-sprite{display:inline-block;flex:none;width:48px;height:48px;background-image:url('./personnages/Planche%20de%20sprites%20du%20cyber-chat%20lyc%C3%A9en.png');background-repeat:no-repeat;background-size:300% 400%;background-position:50% 0%;image-rendering:auto;filter:drop-shadow(0 4px 5px #103b4670)}
 .darksathi-avatar{font-size:0!important;animation:none!important;width:48px!important;height:48px!important}
 .darksathi-avatar .darksathi-sprite{width:48px;height:48px}
 @keyframes darksathi-walk{0%,24%{background-position:0% 0%}25%,49%{background-position:50% 0%}50%,74%{background-position:100% 0%}75%,100%{background-position:50% 0%}}
