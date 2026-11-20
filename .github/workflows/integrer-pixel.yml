@@ -7,6 +7,8 @@ on:
       - 'assets/pixel-guide.css'
       - 'assets/atelier-bd.css'
       - 'assets/atelier-pixel.js'
+      - 'assets/darksathi-li.js'
+      - 'assets/darksathi-li.css'
       - 'outils/integrer_pixel.py'
       - '.github/workflows/integrer-pixel.yml'
   workflow_dispatch:
@@ -23,8 +25,8 @@ jobs:
       - run: python outils/integrer_pixel.py
       - name: Verifier les deux pages
         run: |
-          grep -q 'assets/pixel-guide.js' index.html
-          grep -q 'assets/atelier-pixel.js' atelier-original.html
+          grep -q 'assets/darksathi-li.js' index.html
+          grep -q 'assets/darksathi-li.js' atelier-original.html
           grep -q 'assets/atelier-bd.css' atelier-original.html
       - name: Publier sur main
         run: |
