@@ -1,0 +1,27 @@
+/* Shared BD visual language for the original workshop */
+:root{--bg:#204652!important;--panel:#2c5360!important;--text:#f7faf5!important;--muted:#d5e7e5!important;--cyan:#85f2d9!important;--violet:#d9c1ff!important;--green:#8ef2c3!important;color-scheme:dark}
+body{background:#204652!important;color:var(--text)!important}
+body:before{background:radial-gradient(ellipse at 75% 5%,#407c82 0,transparent 43%),radial-gradient(ellipse at 12% 45%,#2b6670 0,transparent 48%),#204652!important}
+header{background:#244b56ed!important;border-bottom:2px solid #70a4a0!important}
+h1,h2,.logo{font-family:"Jokerman Fine","Jokerman","Comic Sans MS",cursive!important;font-weight:400!important;letter-spacing:0!important}
+h1 em{font-weight:400!important}
+.stat,.card,.panel,.school-detail,.quiz,.school,.source,.campus-map{background:#2c5360!important;border-color:#79a6a7!important;color:#f7faf5!important}
+.card p,.panel p,.panel li,.stat p,.lead,.sub,.school small,.note{color:#e1eeea!important}
+.btn,.filter,.school,.campus-controls select{background:#326575!important;color:#fff!important}
+.btn.primary,.filter[aria-pressed=true]{background:#8ef2d9!important;color:#18343c!important}
+.orb{background:radial-gradient(circle at 30% 25%,#f4ffec,#7ed8cb 18%,#7c92bb 52%,#2a596b 78%)!important}
+#atelier-pixel{position:fixed;right:20px;bottom:18px;z-index:2000;font:14px/1.4 system-ui,sans-serif}
+#atelier-pixel .pixel-launch{border:2px solid #8ef2d9;border-radius:18px;background:#2a5967;color:white;box-shadow:0 8px 24px #102e36a0;display:flex;align-items:center;gap:9px;padding:8px 13px;font-weight:800}
+#atelier-pixel .pixel-face{font-size:30px;display:inline-block;animation:pixel-hop 2.4s ease-in-out infinite}
+#atelier-pixel .pixel-panel{position:absolute;right:0;bottom:65px;width:min(360px,calc(100vw - 24px));background:#f8fff9;color:#173640;border:2px solid #2a7c81;border-radius:17px;padding:17px;box-shadow:0 15px 40px #0b273a77}
+#atelier-pixel .pixel-panel[hidden]{display:none}
+#atelier-pixel h3{margin:0 0 8px;font:400 24px "Jokerman Fine","Jokerman",cursive}
+#atelier-pixel label{display:block;margin-bottom:6px;font-weight:700}
+#atelier-pixel input{width:100%;padding:10px;border-radius:9px;border:1px solid #689da1;color:#173640;background:white}
+#atelier-pixel .pixel-actions{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+#atelier-pixel .pixel-actions button,#atelier-pixel .pixel-go{border:1px solid #2d747a;border-radius:9px;background:#d5f5e9;color:#173640;padding:8px 10px;font-weight:700}
+#atelier-pixel .pixel-go{background:#2a747c;color:#fff;margin-top:8px}
+#atelier-pixel [role=status]{font-size:12px;margin:8px 0 0;color:#31545b}
+@keyframes pixel-hop{50%{transform:translateY(-6px)}}
+@media(prefers-reduced-motion:reduce){#atelier-pixel .pixel-face{animation:none}}
+@media print{#atelier-pixel{display:none}}
