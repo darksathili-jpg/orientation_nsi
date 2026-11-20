@@ -4,11 +4,11 @@
 .darksathi-avatar{font-size:0!important;animation:none!important;display:inline-grid!important;place-items:center;width:51px!important;height:58px!important}
 .darksathi-sprite{position:relative;display:block;flex:none;width:51px;height:58px;aspect-ratio:341/384;isolation:isolate;transform-origin:50% 85%;animation:ds-float 2.6s cubic-bezier(.45,0,.55,1) infinite;filter:drop-shadow(0 7px 8px #102f4277)}
 .darksathi-sprite .ds-frame{position:absolute;inset:0;background-image:var(--darksathi-sheet);background-repeat:no-repeat;background-size:300% 400%;background-position-y:0%;opacity:0;will-change:opacity}
-.darksathi-sprite .ds-frame:nth-child(1){background-position-x:0%;animation:ds-frame-one 2.4s ease-in-out infinite}
-.darksathi-sprite .ds-frame:nth-child(2){background-position-x:50%;animation:ds-frame-two 2.4s ease-in-out infinite}
-.darksathi-sprite .ds-frame:nth-child(3){background-position-x:100%;animation:ds-frame-three 2.4s ease-in-out infinite}
+.darksathi-sprite .ds-frame:nth-child(1){background-position-x:0%;z-index:1;animation:ds-frame-one 2.4s ease-in-out infinite}
+.darksathi-sprite .ds-frame:nth-child(2){background-position-x:50%;opacity:1;animation:none}
+.darksathi-sprite .ds-frame:nth-child(3){background-position-x:100%;z-index:2;animation:ds-frame-three 2.4s ease-in-out infinite}
 @keyframes ds-frame-one{0%,8%{opacity:1}27%,88%{opacity:0}100%{opacity:1}}
-@keyframes ds-frame-two{0%,16%{opacity:0}35%,42%{opacity:1}60%,100%{opacity:0}}
+
 @keyframes ds-frame-three{0%,42%{opacity:0}62%,75%{opacity:1}94%,100%{opacity:0}}
 @keyframes ds-float{0%,100%{transform:translate3d(0,0,0) rotate(-.6deg)}50%{transform:translate3d(0,-7px,0) rotate(.6deg)}}
 .darksathi-hero{display:grid;place-items:center;min-height:340px;position:relative;isolation:isolate;border:2px solid #91d5bf;border-radius:25px;background:radial-gradient(circle at 50% 45%,#55b8a75c,transparent 65%),linear-gradient(145deg,#1c5765,#347d79);overflow:hidden;margin:0}
