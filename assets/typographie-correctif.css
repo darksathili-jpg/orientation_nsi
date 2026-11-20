@@ -1,7 +1,10 @@
-/* Correctif typographique : suppression des collisions entre glyphes Jokerman */
-h1,h2,.logo,#darksathi-panel h3{font-weight:400!important;letter-spacing:normal!important;text-shadow:none!important;-webkit-text-stroke:0!important;font-kerning:normal!important;font-variant-ligatures:none!important;overflow-wrap:normal}
+/* Contrat typographique commun — les grands titres gardent Jokerman sans gras.
+   Les marques et menus restent dans une police lisible sans effet décoratif. */
+h1,h2,#darksathi-panel h3{font-weight:400!important;letter-spacing:normal!important;text-shadow:none!important;-webkit-text-stroke:0!important;font-kerning:normal!important;font-variant-ligatures:none!important;overflow-wrap:normal}
 h1{font-size:clamp(2.5rem,5.6vw,5.2rem)!important;line-height:1.38!important}
 h2{font-size:clamp(1.9rem,3.2vw,2.8rem)!important;line-height:1.55!important}
 #darksathi-panel h3{line-height:1.5!important}
-.logo{letter-spacing:normal!important}
+.logo,.brand,.site-brand,header .logo,nav .logo{font-family:system-ui,-apple-system,'Segoe UI',sans-serif!important;font-size:clamp(1rem,1.5vw,1.3rem)!important;font-weight:700!important;letter-spacing:.015em!important;line-height:1.3!important;text-shadow:none!important;-webkit-text-stroke:0!important;font-variant-ligatures:normal!important}
+.darksathi-hero{box-shadow:0 16px 35px #0b354240, inset 0 0 28px #8cebd016}
+.darksathi-hero figcaption{font-family:system-ui,-apple-system,'Segoe UI',sans-serif!important;font-size:clamp(.8rem,1.1vw,.96rem)!important;line-height:1.5!important;letter-spacing:0!important}
 @media(max-width:600px){h1{font-size:clamp(2.25rem,9vw,3.3rem)!important;line-height:1.4!important}h2{line-height:1.55!important}}
