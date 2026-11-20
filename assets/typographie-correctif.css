@@ -1,0 +1,7 @@
+/* Correctif typographique : suppression des collisions entre glyphes Jokerman */
+h1,h2,.logo,#darksathi-panel h3{font-weight:400!important;letter-spacing:normal!important;text-shadow:none!important;-webkit-text-stroke:0!important;font-kerning:normal!important;font-variant-ligatures:none!important;overflow-wrap:normal}
+h1{font-size:clamp(2.5rem,5.6vw,5.2rem)!important;line-height:1.38!important}
+h2{font-size:clamp(1.9rem,3.2vw,2.8rem)!important;line-height:1.55!important}
+#darksathi-panel h3{line-height:1.5!important}
+.logo{letter-spacing:normal!important}
+@media(max-width:600px){h1{font-size:clamp(2.25rem,9vw,3.3rem)!important;line-height:1.4!important}h2{line-height:1.55!important}}
