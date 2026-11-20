@@ -1,0 +1,44 @@
+name: Recette visuelle stricte
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'atelier-original.html'
+      - 'assets/**'
+      - 'outils/recette-visuelle.cjs'
+      - '.github/workflows/recette-visuelle.yml'
+permissions:
+  contents: read
+jobs:
+  captures:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Installer Playwright et Chromium
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Démarrer le site statique
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 >/tmp/orientation-server.log 2>&1 &
+          for i in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:8765/ >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          exit 1
+      - name: Captures et contrôles de non-régression
+        run: node outils/recette-visuelle.cjs
+      - name: Conserver les preuves même en cas d'échec
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: captures-orientation-nsi
+          path: artifacts/visual-audit/
+          if-no-files-found: warn
+          retention-days: 30
