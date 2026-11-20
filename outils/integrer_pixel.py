@@ -1,7 +1,7 @@
 from pathlib import Path
 pages={
- 'index.html':[('assets/pixel-guide.css','css'),('assets/darksathi-li.css','css'),('assets/typographie-correctif.css','css'),('assets/darksathi-li.js','js')],
- 'atelier-original.html':[('assets/atelier-bd.css','css'),('assets/darksathi-li.css','css'),('assets/typographie-correctif.css','css'),('assets/metiers-missions.css','css'),('assets/darksathi-li.js','js'),('assets/metiers-missions.js','js')]
+ 'index.html':[('assets/pixel-guide.css','css'),('assets/darksathi-li.css','css'),('assets/typographie-correctif.css','css'),('assets/darksathi-sprites.css','css'),('assets/darksathi-li.js','js'),('assets/darksathi-sprites.js','js')],
+ 'atelier-original.html':[('assets/atelier-bd.css','css'),('assets/darksathi-li.css','css'),('assets/typographie-correctif.css','css'),('assets/metiers-missions.css','css'),('assets/darksathi-sprites.css','css'),('assets/darksathi-li.js','js'),('assets/darksathi-sprites.js','js'),('assets/metiers-missions.js','js')]
 }
 for filename,assets in pages.items():
  p=Path(filename)
