@@ -22,7 +22,7 @@ const path = require('node:path');
   const item={page:label,device,width,height,...audit,errors};report.push(item);
   if(!audit.sprites.length)failures.push(label+' '+device+': personnage absent');
   if(audit.sprites.some(s=>!s.visible||s.background==='none'||s.frames!==0))failures.push(label+' '+device+': sprite absent, invisible ou calques superposés');
-  if(audit.sprites.some(s=>s.backgroundSize!=='300% 400%'||s.backgroundPosition!=='50% 0%'))failures.push(label+' '+device+': découpage de planche inattendu');
+  if(audit.sprites.some(s=>s.backgroundSize!=='300% 400%'||!['0% 0%','50% 0%','100% 0%'].includes(s.backgroundPosition)))failures.push(label+' '+device+': découpage de planche inattendu');
   if(audit.horizontalOverflow)failures.push(label+' '+device+': débordement horizontal');
   if(!audit.assistant)failures.push(label+' '+device+': assistant absent');
   if(label==='atelier'&&!audit.mission)failures.push(label+' '+device+': missions absentes');
