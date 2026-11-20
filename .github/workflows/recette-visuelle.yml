@@ -1,4 +1,4 @@
-name: Recette visuelle stricte
+name: Recette Playwright
 on:
   workflow_dispatch:
   push:
@@ -22,7 +22,7 @@ jobs:
           node-version: '22'
       - name: Installer Playwright et Chromium
         run: |
-          npm install --no-save playwright@1.56.1
+          npm install --no-save playwright@1.56.1 @axe-core/playwright@4.14.0
           npx playwright install --with-deps chromium
       - name: Démarrer le site statique
         run: |
