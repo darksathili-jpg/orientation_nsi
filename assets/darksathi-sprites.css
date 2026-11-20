@@ -2,15 +2,16 @@
    Pas de fondu entre dessins incompatibles (origine des saccades). */
 :root{--darksathi-sheet:url("./personnages/Planche%20de%20sprites%20du%20cyber-chat%20lyc%C3%A9en.png")}
 .darksathi-avatar{font-size:0!important;animation:none!important;display:inline-grid!important;place-items:center;width:51px!important;height:58px!important}
-.darksathi-sprite{position:relative;display:block;flex:none;width:51px;height:58px;aspect-ratio:341/384;isolation:isolate;transform-origin:50% 88%;transform:translate3d(0,0,0);animation:none;filter:drop-shadow(0 8px 9px #031d2877);backface-visibility:hidden}
+.darksathi-sprite{position:relative;display:block;flex:none;width:58px;height:58px;aspect-ratio:1/1;isolation:isolate;transform-origin:50% 88%;transform:translate3d(0,0,0);animation:ds-walk 1.05s step-end infinite;filter:drop-shadow(0 8px 9px #031d2877);backface-visibility:hidden}
 .darksathi-sprite{overflow:hidden;background-image:var(--darksathi-sheet);background-repeat:no-repeat;background-size:300% 400%;background-position:50% 0%;}
+@keyframes ds-walk{0%,100%{background-position:50% 0%}25%{background-position:0% 0%}50%{background-position:50% 0%}75%{background-position:100% 0%}}
 /* One image, one frame: never stack child layers or interpolate sprite positions. */
 .darksathi-sprite .ds-frame{display:none!important}
 @keyframes ds-idle{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(0,-5px,0)}}
-.darksathi-hero{display:grid;place-items:center;min-height:390px;position:relative;isolation:isolate;border:2px solid #5af1e5;border-radius:30px;background:radial-gradient(circle at 50% 50%,#0d7e86aa 0%,#064b59 55%,#052c3b 100%);overflow:hidden;margin:0;box-shadow:0 0 0 1px #35f3e622,0 0 36px #11f5e52b,inset 0 0 40px #1cd5cc19}
+.darksathi-hero{display:grid;place-items:center;min-height:480px;position:relative;isolation:isolate;border:2px solid #5af1e5;border-radius:30px;background:radial-gradient(circle at 50% 50%,#0d7e86aa 0%,#064b59 55%,#052c3b 100%);overflow:hidden;margin:0;box-shadow:0 0 0 1px #35f3e622,0 0 36px #11f5e52b,inset 0 0 40px #1cd5cc19}
 .darksathi-hero:before{content:'';position:absolute;inset:15% 9%;border:3px solid #47f4edaa;border-left-color:transparent;border-right-color:transparent;border-radius:50%;box-shadow:0 0 24px #00e9f44d;pointer-events:none}
 .darksathi-hero:after{content:'';position:absolute;inset:20% 13%;border:1px dashed #82e8e65c;border-radius:50%;pointer-events:none}
 .darksathi-hero .darksathi-sprite{width:min(310px,80%);height:auto;aspect-ratio:341/384;z-index:1;filter:drop-shadow(0 18px 15px #001c2cb0)}
 .darksathi-hero figcaption{position:absolute;z-index:2;bottom:12px;left:16px;right:16px;text-align:center;font:700 clamp(.84rem,1.2vw,1rem)/1.4 system-ui,sans-serif;color:#f5ffff;text-shadow:0 2px 8px #001b25;background:#043541d9;border:1px solid #50f5e4;border-radius:999px;padding:8px 10px}
-@media(max-width:650px){.darksathi-hero{min-height:310px}.darksathi-hero .darksathi-sprite{width:min(225px,75%)}}
-@media(prefers-reduced-motion:reduce){.darksathi-sprite{animation:none!important;transform:none!important}}
+@media(max-width:650px){.darksathi-hero{min-height:310px}.darksathi-hero .darksathi-sprite{width:min(285px,88%)}}
+@media(prefers-reduced-motion:reduce){.darksathi-sprite{animation:none!important;transform:none!important;background-position:50% 0%!important}}
