@@ -1,0 +1,38 @@
+name: Integrer le compagnon Pixel
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'assets/pixel-guide.js'
+      - 'assets/pixel-guide.css'
+      - 'outils/integrer_pixel.py'
+      - '.github/workflows/integrer-pixel.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  integrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python outils/integrer_pixel.py
+      - name: Verifier la presence des ressources
+        run: |
+          test -s assets/pixel-guide.js
+          test -s assets/pixel-guide.css
+          grep -q 'assets/pixel-guide.js' index.html
+          grep -q 'assets/pixel-guide.css' index.html
+      - name: Publier sur main
+        run: |
+          if ! git diff --quiet -- index.html; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add index.html
+            git commit -m 'Integrer Pixel et la charte BD dans la page'
+            git push
+          fi
