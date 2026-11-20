@@ -9,6 +9,9 @@ on:
       - 'assets/atelier-pixel.js'
       - 'assets/darksathi-li.js'
       - 'assets/darksathi-li.css'
+      - 'assets/typographie-correctif.css'
+      - 'assets/metiers-missions.js'
+      - 'assets/metiers-missions.css'
       - 'outils/integrer_pixel.py'
       - '.github/workflows/integrer-pixel.yml'
   workflow_dispatch:
