@@ -1,5 +1,5 @@
 (()=>{'use strict';
-const source='assets/personnages/darksathi-li-spritesheet.png';
+const source='assets/personnages/Planche%20de%20sprites%20du%20cyber-chat%20lyc%C3%A9en.png';
 function install(){const img=new Image();img.onload=()=>{if(img.naturalWidth<3||img.naturalHeight<4)return;
  document.querySelectorAll('#darksathi-assistant .darksathi-avatar').forEach(el=>{el.textContent='';const sprite=document.createElement('span');sprite.className='darksathi-sprite is-animated';sprite.setAttribute('aria-hidden','true');el.append(sprite)});
  const hero=document.querySelector('main .hero,main .hero-section,header.hero,.hero');
