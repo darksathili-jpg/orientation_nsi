@@ -1,0 +1,15 @@
+/* Planche originale Darksathi Li : 3 colonnes x 4 lignes, poses sur fond transparent.
+   Fichier attendu : assets/personnages/darksathi-li-spritesheet.png */
+.darksathi-sprite{display:inline-block;flex:none;width:48px;height:48px;background-image:url('./personnages/darksathi-li-spritesheet.png');background-repeat:no-repeat;background-size:300% 400%;background-position:50% 0%;image-rendering:auto;filter:drop-shadow(0 4px 5px #103b4670)}
+.darksathi-avatar{font-size:0!important;animation:none!important;width:48px!important;height:48px!important}
+.darksathi-avatar .darksathi-sprite{width:48px;height:48px}
+@keyframes darksathi-walk{0%,24%{background-position:0% 0%}25%,49%{background-position:50% 0%}50%,74%{background-position:100% 0%}75%,100%{background-position:50% 0%}}
+.darksathi-sprite.is-animated{animation:darksathi-walk 1.05s steps(1,end) infinite}
+.darksathi-hero{display:grid;place-items:center;min-height:340px;position:relative;isolation:isolate;border:2px solid #91d5bf;border-radius:25px;background:radial-gradient(circle at 50% 45%,#55b8a75c,transparent 65%),linear-gradient(145deg,#1c5765,#347d79);overflow:hidden}
+.darksathi-hero:before{content:'';position:absolute;inset:22px;border:2px dashed #9ee6d04d;border-radius:24px;pointer-events:none}
+.darksathi-hero .darksathi-sprite{width:min(250px,70%);height:auto;aspect-ratio:1 / 1.46;background-size:300% 400%;background-position:50% 0%;filter:drop-shadow(0 15px 13px #082f3b80)}
+.darksathi-hero .darksathi-sprite.is-animated{animation:darksathi-hero-walk 1.35s steps(1,end) infinite}
+@keyframes darksathi-hero-walk{0%,24%{background-position:0% 0%}25%,49%{background-position:50% 0%}50%,74%{background-position:100% 0%}75%,100%{background-position:50% 0%}}
+.darksathi-hero figcaption{position:absolute;bottom:10px;left:12px;right:12px;text-align:center;font-weight:700;color:#f6fff9;text-shadow:0 2px 5px #143c46}
+.darksathi-hero[hidden]{display:none}
+@media(prefers-reduced-motion:reduce){.darksathi-sprite.is-animated{animation:none!important}}
