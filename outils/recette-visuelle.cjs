@@ -29,12 +29,16 @@ const pages = [
     name: "accueil",
     url: "index.html",
     reference: { width: 1104, height: 831 },
+    title: "Ton futur ne se code pas tout seul.",
+    illustrationCount: 3,
     test: catalogue,
   },
   {
     name: "atelier",
     url: "atelier-original.html",
     reference: { width: 778, height: 831 },
+    title: "Comprendre les métiers",
+    illustrationCount: 6,
     test: atelier,
   },
 ];
@@ -65,7 +69,7 @@ async function geometry(page) {
     ];
     return {
       headings: document.querySelectorAll("h1").length,
-      title: heading.textContent,
+      title: heading.querySelector(".display-lettering").alt,
       clipped: frames.some(
         (rect) =>
           rect.left < 0 ||
@@ -310,7 +314,7 @@ async function visit(browser, page, device, test = true) {
   tab.setDefaultTimeout(7000);
 
   // Run the catalogue with a reproducible tile outage. Leaflet and the data stay live.
-  await tab.route("https://tile.openstreetmap.org/**", (route) =>
+  await tab.route("https://a.tile.openstreetmap.fr/**", (route) =>
     route.fulfill({ status: 503 }),
   );
   const failures = [];
@@ -361,17 +365,22 @@ async function visit(browser, page, device, test = true) {
             fullPage: true,
           });
         }
-        const cdp = await context.newCDPSession(tab);
-        await cdp.send("DOM.enable");
-        await cdp.send("CSS.enable");
-        const { root } = await cdp.send("DOM.getDocument");
-        const { nodeId } = await cdp.send("DOM.querySelector", {
-          nodeId: root.nodeId,
-          selector: "h1",
-        });
-        run.titleFonts = (
-          await cdp.send("CSS.getPlatformFontsForNode", { nodeId })
-        ).fonts.map((font) => font.familyName);
+        const illustrations = tab.locator('img[src*="assets/maquette/"]');
+        await count(
+          tab,
+          'img[src*="assets/maquette/"]',
+          page.illustrationCount,
+        );
+        run.illustrations = await illustrations.evaluateAll((images) =>
+          images.map(({ currentSrc, complete, naturalWidth }) => ({
+            file: new URL(currentSrc).pathname.split("/").pop(),
+            loaded: complete && naturalWidth > 0,
+          })),
+        );
+        assert.ok(
+          run.illustrations.every(({ loaded }) => loaded),
+          "Illustrations chargées",
+        );
       },
     ],
     [
@@ -403,25 +412,42 @@ async function visit(browser, page, device, test = true) {
             .evaluate((el) => el === document.activeElement),
           true,
         );
-        await count(tab, ".darksathi-sprite", 2);
-        const sprite = tab.locator(".darksathi-sprite").first();
+        await count(tab, ".companion-pose", 1);
+        const pose = tab.locator(".companion-pose");
+        const animationName = () =>
+          pose.evaluate((el) => getComputedStyle(el).animationName);
+        assert.equal(await animationName(), "none");
         assert.equal(
-          await sprite.evaluate((el) => getComputedStyle(el).animationName),
-          "none",
+          await tab
+            .getByRole("heading", { level: 1, name: page.title })
+            .count(),
+          1,
         );
-        if (page.name === "accueil") {
-          await tab.emulateMedia({ reducedMotion: "no-preference" });
-          const poses = await sprite.evaluate((el) => {
-            const animation = el.getAnimations()[0];
-            animation.pause();
-            return [0, 300, 600, 900].map((time) => {
-              animation.currentTime = time;
-              return getComputedStyle(el).backgroundPosition;
-            });
+        await tab.emulateMedia({ reducedMotion: "no-preference" });
+        assert.equal(await animationName(), "companion-settle");
+        const positions = await pose.evaluate((el) => {
+          const animation = el.getAnimations()[0];
+          animation.pause();
+          return [0, 1260, 2799].map((time) => {
+            animation.currentTime = time;
+            return new DOMMatrix(getComputedStyle(el).transform).m42;
           });
-          assert.deepEqual(poses, ["50% 0px", "0% 0px", "50% 0px", "100% 0px"]);
-          await tab.emulateMedia({ reducedMotion: "reduce" });
-        }
+        });
+        assert.ok(
+          Math.abs(positions[0]) < 0.01 &&
+            positions[1] <= -3.9 &&
+            Math.abs(positions[2]) < 0.01,
+        );
+        await tab.emulateMedia({
+          reducedMotion: "reduce",
+          forcedColors: "active",
+        });
+        assert.equal(
+          await tab.locator("h1 .display-lettering").isVisible(),
+          false,
+        );
+        assert.equal(await tab.locator("h1 .display-text").isVisible(), true);
+        await tab.emulateMedia({ forcedColors: "none" });
       },
     ],
     ...(test

@@ -240,10 +240,10 @@
     map = L.map("map", { scrollWheelZoom: false });
     map.setView(watteau, 10);
     const tiles = L.tileLayer(
-      "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+      "https://a.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png",
       {
         attribution:
-          '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+          '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> · Rendu <a href="https://www.openstreetmap.fr/">OpenStreetMap France</a>',
         maxZoom: 18,
       },
     );

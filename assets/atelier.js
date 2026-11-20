@@ -765,11 +765,11 @@
       9,
     );
     const tiles = L.tileLayer(
-      "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+      "https://a.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png",
       {
         maxZoom: 18,
         attribution:
-          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> · Rendu <a href="https://www.openstreetmap.fr/">OpenStreetMap France</a>',
       },
     );
     const notice = document.getElementById("schoolMapNotice");

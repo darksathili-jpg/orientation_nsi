@@ -20,7 +20,7 @@
   root.setAttribute("aria-label", "Assistant d’orientation");
   root.innerHTML = `
     <button class="pill" id="darksathi-open" type="button" aria-expanded="false" aria-controls="darksathi-panel">
-      <span class="darksathi-sprite" aria-hidden="true"></span>
+      <img class="darksathi-avatar" src="assets/maquette/darksathi-avatar.png" width="244" height="203" alt="">
       Demander à Darksathi Li
     </button>
     <section id="darksathi-panel" aria-labelledby="darksathi-title" hidden>

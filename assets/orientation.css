@@ -108,8 +108,30 @@ button {
   color: var(--accent);
   font-style: normal;
 }
+.display-lettering {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.display-text {
+  display: none;
+}
 .light .display-title {
   text-shadow: none;
+}
+.light .display-lettering {
+  display: none;
+}
+.light .display-text {
+  display: block;
+}
+@media (forced-colors: active), print {
+  .display-lettering {
+    display: none;
+  }
+  .display-text {
+    display: block;
+  }
 }
 .hero-lead {
   margin: 0;
@@ -191,27 +213,18 @@ button {
   font-size: 0.88rem;
 }
 
-.darksathi-sprite {
+.companion-pose {
   display: block;
-  width: 100%;
-  aspect-ratio: 1;
-  background: url("./personnages/Planche de sprites du cyber-chat lycéen.png")
-    50% 0 / 300% 400% no-repeat;
+  height: auto;
+  animation: companion-settle 2.8s ease-in-out;
 }
-.companion-walk {
-  animation: marche-darksathi 1.2s step-end 3;
-}
-@keyframes marche-darksathi {
+@keyframes companion-settle {
   0%,
-  50%,
   100% {
-    background-position: 50% 0;
+    transform: translateY(0);
   }
-  25% {
-    background-position: 0 0;
-  }
-  75% {
-    background-position: 100% 0;
+  45% {
+    transform: translateY(-4px);
   }
 }
 
@@ -226,8 +239,9 @@ button {
 #darksathi-open {
   padding-block: 0.25rem;
 }
-#darksathi-open .darksathi-sprite {
+#darksathi-open .darksathi-avatar {
   width: 2.4rem;
+  height: auto;
 }
 #darksathi-panel {
   width: min(100%, 31rem);
@@ -294,7 +308,7 @@ button {
   html {
     scroll-behavior: auto;
   }
-  .companion-walk {
+  .companion-pose {
     animation: none;
   }
 }
