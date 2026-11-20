@@ -1,16 +1,18 @@
-/* Darksathi Li — planche originale 3 x 4, proportions natives.
-   Les trois poses frontales (première rangée) composent une marche stylisée.
-   Les interpolations du corps sont continues, les poses restent discrètes. */
-:root{--darksathi-sheet:url("./personnages/Planche%20de%20sprites%20du%20cyber-chat%20lyc%C3%A9en.png")}
-.darksathi-avatar{font-size:0!important;animation:none!important;display:inline-grid!important;place-items:center;width:51px!important;height:58px!important;overflow:visible}
-.darksathi-sprite{display:inline-block;flex:none;width:51px;height:58px;aspect-ratio:341/384;background-image:var(--darksathi-sheet);background-repeat:no-repeat;background-size:300% 400%;background-position:50% 0%;image-rendering:auto;filter:drop-shadow(0 4px 5px #103b4670);transform-origin:50% 90%;will-change:transform,background-position}
-.darksathi-sprite.is-animated{animation:darksathi-frames 0.66s steps(1,end) infinite,darksathi-bob 0.66s ease-in-out infinite}
-@keyframes darksathi-frames{0%,32.99%{background-position:0% 0%}33%,65.99%{background-position:50% 0%}66%,100%{background-position:100% 0%}}
-@keyframes darksathi-bob{0%,100%{transform:translate3d(0,0,0) rotate(-1deg)}50%{transform:translate3d(0,-5px,0) rotate(1deg)}}
+/* Darksathi Li : identité commune, poses fondues et mouvement interpolé.
+   Sprite d'origine 3 colonnes x 4 lignes ; recoloration sélective en JS. */
+:root{--darksathi-sheet:url("./personnages/Planche%20de%20sprites%20du%20cyber-chat%20lyc%C3%A9en.png");--ds-teal:#70efd7;--ds-ink:#204c59}
+.darksathi-avatar{font-size:0!important;animation:none!important;display:inline-grid!important;place-items:center;width:51px!important;height:58px!important}
+.darksathi-sprite{position:relative;display:block;flex:none;width:51px;height:58px;aspect-ratio:341/384;isolation:isolate;transform-origin:50% 85%;animation:ds-float 2.6s cubic-bezier(.45,0,.55,1) infinite;filter:drop-shadow(0 7px 8px #102f4277)}
+.darksathi-sprite .ds-frame{position:absolute;inset:0;background-image:var(--darksathi-sheet);background-repeat:no-repeat;background-size:300% 400%;background-position-y:0%;opacity:0;will-change:opacity}
+.darksathi-sprite .ds-frame:nth-child(1){background-position-x:0%;animation:ds-frame-one 2.4s ease-in-out infinite}
+.darksathi-sprite .ds-frame:nth-child(2){background-position-x:50%;animation:ds-frame-two 2.4s ease-in-out infinite}
+.darksathi-sprite .ds-frame:nth-child(3){background-position-x:100%;animation:ds-frame-three 2.4s ease-in-out infinite}
+@keyframes ds-frame-one{0%,8%{opacity:1}27%,88%{opacity:0}100%{opacity:1}}
+@keyframes ds-frame-two{0%,16%{opacity:0}35%,42%{opacity:1}60%,100%{opacity:0}}
+@keyframes ds-frame-three{0%,42%{opacity:0}62%,75%{opacity:1}94%,100%{opacity:0}}
+@keyframes ds-float{0%,100%{transform:translate3d(0,0,0) rotate(-.6deg)}50%{transform:translate3d(0,-7px,0) rotate(.6deg)}}
 .darksathi-hero{display:grid;place-items:center;min-height:340px;position:relative;isolation:isolate;border:2px solid #91d5bf;border-radius:25px;background:radial-gradient(circle at 50% 45%,#55b8a75c,transparent 65%),linear-gradient(145deg,#1c5765,#347d79);overflow:hidden;margin:0}
 .darksathi-hero:before{content:'';position:absolute;inset:22px;border:2px dashed #9ee6d04d;border-radius:24px;pointer-events:none}
 .darksathi-hero .darksathi-sprite{width:min(240px,68%);height:auto;aspect-ratio:341/384;filter:drop-shadow(0 15px 13px #082f3b80)}
-.darksathi-hero .darksathi-sprite.is-animated{animation:darksathi-frames 0.9s steps(1,end) infinite,darksathi-hero-bob 0.9s ease-in-out infinite}
-@keyframes darksathi-hero-bob{0%,100%{transform:translate3d(0,0,0) rotate(-1deg)}50%{transform:translate3d(0,-8px,0) rotate(1deg)}}
 .darksathi-hero figcaption{position:absolute;bottom:10px;left:12px;right:12px;text-align:center;font-weight:700;color:#f6fff9;text-shadow:0 2px 5px #143c46}
-@media(prefers-reduced-motion:reduce){.darksathi-sprite.is-animated{animation:none!important}}
+@media(prefers-reduced-motion:reduce){.darksathi-sprite,.darksathi-sprite .ds-frame{animation:none!important}.darksathi-sprite .ds-frame{opacity:0!important}.darksathi-sprite .ds-frame:nth-child(2){opacity:1!important}}
