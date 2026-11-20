@@ -2,11 +2,10 @@
    Pas de fondu entre dessins incompatibles (origine des saccades). */
 :root{--darksathi-sheet:url("./personnages/Planche%20de%20sprites%20du%20cyber-chat%20lyc%C3%A9en.png")}
 .darksathi-avatar{font-size:0!important;animation:none!important;display:inline-grid!important;place-items:center;width:51px!important;height:58px!important}
-.darksathi-sprite{position:relative;display:block;flex:none;width:51px;height:58px;aspect-ratio:341/384;isolation:isolate;transform-origin:50% 88%;transform:translate3d(0,0,0);animation:ds-idle 3.8s ease-in-out infinite;filter:drop-shadow(0 8px 9px #031d2877);backface-visibility:hidden}
-.darksathi-sprite .ds-frame{position:absolute;inset:0;background-image:var(--darksathi-sheet);background-repeat:no-repeat;background-size:300% 400%;background-position-y:0%;opacity:0!important;animation:none!important;pointer-events:none}
-.darksathi-sprite .ds-frame:nth-child(2){background-position-x:50%;opacity:1!important}
-.darksathi-sprite .ds-frame:nth-child(1){background-position-x:0%}
-.darksathi-sprite .ds-frame:nth-child(3){background-position-x:100%}
+.darksathi-sprite{position:relative;display:block;flex:none;width:51px;height:58px;aspect-ratio:341/384;isolation:isolate;transform-origin:50% 88%;transform:translate3d(0,0,0);animation:none;filter:drop-shadow(0 8px 9px #031d2877);backface-visibility:hidden}
+.darksathi-sprite{overflow:hidden;background-image:var(--darksathi-sheet);background-repeat:no-repeat;background-size:300% 400%;background-position:50% 0%;}
+/* One image, one frame: never stack child layers or interpolate sprite positions. */
+.darksathi-sprite .ds-frame{display:none!important}
 @keyframes ds-idle{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(0,-5px,0)}}
 .darksathi-hero{display:grid;place-items:center;min-height:390px;position:relative;isolation:isolate;border:2px solid #5af1e5;border-radius:30px;background:radial-gradient(circle at 50% 50%,#0d7e86aa 0%,#064b59 55%,#052c3b 100%);overflow:hidden;margin:0;box-shadow:0 0 0 1px #35f3e622,0 0 36px #11f5e52b,inset 0 0 40px #1cd5cc19}
 .darksathi-hero:before{content:'';position:absolute;inset:15% 9%;border:3px solid #47f4edaa;border-left-color:transparent;border-right-color:transparent;border-radius:50%;box-shadow:0 0 24px #00e9f44d;pointer-events:none}
