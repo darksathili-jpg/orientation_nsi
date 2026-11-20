@@ -12,6 +12,9 @@ on:
       - 'assets/typographie-correctif.css'
       - 'assets/metiers-missions.js'
       - 'assets/metiers-missions.css'
+      - 'assets/darksathi-sprites.css'
+      - 'assets/darksathi-sprites.js'
+      - 'assets/personnages/darksathi-li-spritesheet.png'
       - 'outils/integrer_pixel.py'
       - '.github/workflows/integrer-pixel.yml'
   workflow_dispatch:
