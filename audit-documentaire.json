@@ -1,0 +1,58 @@
+{
+  "date": "2026-11-19",
+  "scope": "Audit documentaire enrichi : 14 établissements avec sources officielles associées; géographie indicative; non exhaustif",
+  "establishments_in_catalog": 25,
+  "establishments_with_linked_official_evidence": 14,
+  "official_evidence_by_id": {
+    "wallon": [
+      "https://www.onisep.fr/ressources/structures-enseignement/hauts-de-france/nord/lycee-henri-wallon/bts-services-informatiques-aux-organisations-option-a-solutions-d-infrastructure-systemes-et-reseaux",
+      "https://www.onisep.fr/ressources/structures-enseignement/hauts-de-france/nord/lycee-henri-wallon/bts-services-informatiques-aux-organisations-option-b-solutions-logicielles-et-applications-metiers"
+    ],
+    "dampierre": [
+      "https://www.onisep.fr/ressources/structures-enseignement/hauts-de-france/nord/lycee-dampierre/bts-services-informatiques-aux-organisations-option-a-solutions-d-infrastructure-systemes-et-reseaux",
+      "https://www.onisep.fr/ressources/structures-enseignement/hauts-de-france/nord/lycee-dampierre/bts-services-informatiques-aux-organisations-option-b-solutions-logicielles-et-applications-metiers"
+    ],
+    "saintremi": [
+      "https://www.onisep.fr/ressources/structures-enseignement/hauts-de-france/nord/lycee-saint-remi/bts-services-informatiques-aux-organisations-option-a-solutions-d-infrastructure-systemes-et-reseaux",
+      "https://www.onisep.fr/ressources/structures-enseignement/hauts-de-france/nord/lycee-saint-remi/bts-services-informatiques-aux-organisations-option-b-solutions-logicielles-et-applications-metiers"
+    ],
+    "saintluc": [
+      "https://www.onisep.fr/ressources/structures-enseignement/hauts-de-france/nord/lycee-saint-luc/bts-services-informatiques-aux-organisations-option-b-solutions-logicielles-et-applications-metiers"
+    ],
+    "maubeuge": [
+      "https://www.onisep.fr/ressources/structures-enseignement/hauts-de-france/nord/iut-de-valenciennes-campus-de-maubeuge-universite-polytechnique-hauts-de-france"
+    ],
+    "lens": [
+      "https://www.onisep.fr/ressources/univers-formation/formations/post-bac/but-informatique-parcours-realisation-d-applications-conception-developpement-validation"
+    ],
+    "lillebut": [
+      "https://www.onisep.fr/ressources/univers-formation/formations/post-bac/but-informatique-parcours-realisation-d-applications-conception-developpement-validation"
+    ],
+    "calais": [
+      "https://www.onisep.fr/ressources/univers-formation/formations/post-bac/but-informatique-parcours-administration-gestion-et-exploitation-des-donnees",
+      "https://www.onisep.fr/ressources/univers-formation/formations/post-bac/but-informatique-parcours-realisation-d-applications-conception-developpement-validation"
+    ],
+    "gaston": [
+      "https://www.onisep.fr/ressources/structures-enseignement/hauts-de-france/nord/lycee-gaston-berger/bts-services-informatiques-aux-organisations-option-a-solutions-d-infrastructure-systemes-et-reseaux",
+      "https://www.onisep.fr/ressources/structures-enseignement/hauts-de-france/nord/lycee-gaston-berger/bts-services-informatiques-aux-organisations-option-b-solutions-logicielles-et-applications-metiers"
+    ],
+    "baggio": [
+      "https://www.onisep.fr/ressources/univers-formation/formations/post-bac/bts-cybersecurite-informatique-et-reseaux-electronique-option-b-electronique-et-reseaux"
+    ],
+    "lemonnier": [
+      "https://www.onisep.fr/ressources/univers-formation/formations/post-bac/bts-cybersecurite-informatique-et-reseaux-electronique-option-b-electronique-et-reseaux"
+    ],
+    "epsi": [
+      "https://www.onisep.fr/ressources/structures-enseignement/hauts-de-france/nord/ecole-privee-des-sciences-informatiques-campus-lille"
+    ],
+    "ipssi": [
+      "https://www.onisep.fr/ressources/structures-enseignement/hauts-de-france/nord/ipssi-campus-de-lille"
+    ],
+    "ynov": [
+      "https://www.onisep.fr/ressources/structures-enseignement/hauts-de-france/nord/lille-ynov-campus"
+    ]
+  },
+  "geography": "Coordonnées du catalogue non certifiées à l’adresse de chaque bâtiment; distances indicatives uniquement",
+  "admission_2027": "Non confirmée : consulter Parcoursup lors de la campagne 2027",
+  "method": "Liens Onisep contrôlés; aucune validation des trajets ou coordonnées par géocodage adresse-à-adresse"
+}
